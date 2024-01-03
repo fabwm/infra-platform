@@ -13,8 +13,8 @@ def validate_system_requirements(system_requirements):
             subprocess.check_output([software, '--version'])
         except:
             user_decision_to_install = input(f"Would you like to install {software}? (y/n): \n")
+            print(f"\nIf for some reason the installation does not succeed, please check for the {software} requirements and if your repositorie is configured")
             if user_decision_to_install == 'y':
-                print(f"\nIf for some reason the installation does not succeed, please check for the {software} requirements and if your repositorie is configured")
                 install_system_requirements(software, repositories)
             else:
                 print(f"Please install {software} to proceed to use the platform")
