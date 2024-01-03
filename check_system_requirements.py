@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import subprocess
 import os
+import time
 
 system_requirements = ["terraform", "aws", "vagrant", "ansible", "docker"]
 repositories = ["yum", "apt"]
@@ -13,7 +14,8 @@ def validate_system_requirements(system_requirements):
             subprocess.check_output([software, '--version'])
         except:
             user_decision_to_install = input(f"Would you like to install {software}? (y/n): \n")
-            print(f"\nIf for some reason the installation does not succeed, please check for the {software} requirements and if your repositorie is configured")
+            print(f"\n\nIf for some reason the installation does not succeed, please check for the {software} requirements and if your repositorie is configured")
+            time.sleep(3)
             if user_decision_to_install == 'y':
                 install_system_requirements(software, repositories)
             else:
