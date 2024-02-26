@@ -6,7 +6,7 @@ import time
 system_requirements = ["terraform", "aws", "vagrant", "ansible", "docker"]
 repositories = ["yum", "apt"]
 
-def validate_system_requirements(system_requirements):
+def validate_system_requirements():
 
     print("Checking system requirements...\n")
     for software in system_requirements:
@@ -39,6 +39,6 @@ def install_system_requirements(software_not_instaled, repo):
 
     subprocess.check_call(["sudo", repo_name, "install", software_not_instaled])    
    
+if __name__ == "__main__":
 
-validate_system_requirements(system_requirements)
-# install_system_requirements("notepadqq", repositories)
+    validate_system_requirements()
